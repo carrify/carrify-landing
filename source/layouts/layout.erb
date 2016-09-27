@@ -10,11 +10,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 
-    <%= stylesheet_link_tag :site %>
+    <link href="./stylesheets/site.css" rel="stylesheet" />
   </head>
 
   <body class="<%= page_classes %>">
     <%= yield %>
-    <%= javascript_include_tag :all %>
+    <script src="./javascripts/all.js"></script>
   </body>
 </html>

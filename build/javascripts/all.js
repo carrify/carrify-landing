@@ -11,10 +11,13 @@
   var clouds = [];
   var cloudWidth = 200;
   var cloudHeight = 95;
-  var cloudURL = "/images/cloud1.svg";
-  var maggieURL = "/images/maggie.svg";
+  var cloudURL = "./images/cloud1.svg";
+  var maggieURL = "./images/maggie.svg";
   var maggieWidth = 300;
   var maggieHeight = 500;
+  var maggieWidthMobile = 200;
+  var maggieHeightMobile = 333.33;
+  var mobileWidth = 480;
 
   var imgCloud;
   var imgMaggie;
@@ -76,10 +79,18 @@
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
+  function getMaggieWidth() {
+    return pageWidth <= mobileWidth ? maggieWidthMobile : maggieWidth;
+  }
+
+  function getMaggieHeight() {
+    return pageWidth <= mobileWidth ? maggieHeightMobile : maggieHeight;
+  }
+
   var timeInterval = 150;
   var interval;
   var maggieFlying = false;
-  var maggiePosX = pageWidth / 2 - maggieWidth / 2;
+  var maggiePosX = pageWidth / 2 - getMaggieWidth() / 2;
   var maggiePosY1 = pageHeight / 3 - 10;
   var maggiePosY2 = maggiePosY1 + 20;
   var maggiePosY = pageHeight;
@@ -114,7 +125,7 @@
       }
 
       if (maggieFlying) {
-        printMaggie(maggiePosX, maggiePosY, maggieWidth, maggieHeight);
+        printMaggie(maggiePosX, maggiePosY, getMaggieWidth(), getMaggieHeight());
 
         if (!firstEnd) {
           maggiePosY -= 30;

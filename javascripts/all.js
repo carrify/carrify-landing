@@ -11,8 +11,8 @@
   var clouds = [];
   var cloudWidth = 200;
   var cloudHeight = 95;
-  var cloudURL = "/images/cloud1.svg";
-  var maggieURL = "/images/maggie.svg";
+  var cloudURL = "./images/cloud1.svg";
+  var maggieURL = "./images/maggie.svg";
   var maggieWidth = 300;
   var maggieHeight = 500;
 

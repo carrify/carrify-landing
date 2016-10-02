@@ -90,8 +90,8 @@ body {
   }
 
   @media (max-width: $mobile) {
-    background-size: 200%;
-    background-position: center -420%;
+    background-size: 180%;
+    background-position: center -280%;
   }
 }
 
@@ -135,13 +135,21 @@ body {
   position: absolute;
   top: 40px;
   left: 40px;
-  width: 550px;
+  width: 520px;
+
+  @media (max-width: $small) {
+    width: 400px;
+  }
+
+  @media (max-height: 800px) {
+    width: 400px;
+  }
 
   @media (max-width: $mobile) {
     position: relative;
-    top: 30px;
+    top: 15px;
     left: 0;
-    width: 90%;
+    width: 85%;
     display: block;
     margin: 0 auto;
   }
@@ -177,12 +185,21 @@ h2 {
          -o-animation: fadein 2s; /* Opera < 12.1 */
             animation: fadein 2s;
 
+  @media (max-height: $small) {
+    top: 80px;
+  }
+
+  @media (max-height: 800px) {
+    top: 80px;
+  }
+
   @media (max-width: $mobile) {
     position: relative;
     top: auto;
     left: auto;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 1.7em;
+    padding: 0 10px;
   }
 }
 

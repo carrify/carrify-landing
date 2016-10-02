@@ -11,13 +11,18 @@
   var clouds = [];
   var cloudWidth = 200;
   var cloudHeight = 95;
+  var cloudWidthMobile = 100;
+  var cloudHeightMobile = 47;
   var cloudURL = "./images/cloud1.svg";
   var maggieURL = "./images/maggie.svg";
   var maggieWidth = 300;
   var maggieHeight = 500;
   var maggieWidthMobile = 200;
   var maggieHeightMobile = 333.33;
-  var mobileWidth = 480;
+  var maggieWidthSmall = 250;
+  var maggieHeightSmall = 417;
+  var mobileWidth = 417;
+  var mobileHeight = 800;
 
   var imgCloud;
   var imgMaggie;
@@ -47,15 +52,15 @@
   function generateCloudRow(y) {
     var x = 0;
     var width = pageWidth * 1.5;
-    var inc = 300;
+    var inc = pageWidth / 4;
 
     while (x < width) {
       if (generateRandom(1, 4) !== 1) {
         var randX = x + generateRandom(1, 80) * generateRandomSign();
         var randY = y + generateRandom(1, 80) * generateRandomSign();
         var factor = generateRandom(3, 5) / 3.0;
-        var cWidth = cloudWidth * factor;
-        var cHeight = cloudHeight * factor;
+        var cWidth = getCloudWidth() * factor;
+        var cHeight = getCloudHeight() * factor;
 
         clouds.push({
           'x': randX,
@@ -80,11 +85,35 @@
   }
 
   function getMaggieWidth() {
-    return pageWidth <= mobileWidth ? maggieWidthMobile : maggieWidth;
+    if (pageWidth <= mobileWidth) {
+      return maggieWidthMobile;
+    }
+
+    if (pageHeight < mobileHeight) {
+      return maggieWidthSmall;
+    }
+
+    return maggieWidth;
   }
 
   function getMaggieHeight() {
-    return pageWidth <= mobileWidth ? maggieHeightMobile : maggieHeight;
+    if (pageWidth <= mobileWidth) {
+      return maggieHeightMobile;
+    }
+
+    if (pageHeight < mobileHeight) {
+      return maggieHeightSmall;
+    }
+
+    return maggieHeight;
+  }
+
+  function getCloudWidth() {
+    return pageWidth <= mobileWidth ? cloudWidthMobile : cloudWidth;
+  }
+
+  function getCloudHeight() {
+    return pageWidth <= mobileWidth ? cloudHeightMobile : cloudHeight;
   }
 
   var timeInterval = 150;
@@ -101,9 +130,11 @@
   function start() {
     clouds = [];
 
-    generateCloudRow(300);
-    generateCloudRow(380);
-    generateCloudRow(600);
+    var initialY = pageHeight / 2;
+
+    generateCloudRow(initialY);
+    generateCloudRow(initialY + getCloudHeight());
+    generateCloudRow(initialY + getMaggieHeight() * 2);
 
     var cloudLength = clouds.length;
 

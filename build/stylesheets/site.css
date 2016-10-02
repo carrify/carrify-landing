@@ -487,8 +487,8 @@ body {
   @media (max-width: 480px) {
     /* line 70, site.css.scss */
     .earth {
-      background-size: 200%;
-      background-position: center -420%; } }
+      background-size: 180%;
+      background-position: center -280%; } }
 
 /* line 98, site.css.scss */
 .shadow {
@@ -530,28 +530,36 @@ body {
   position: absolute;
   top: 40px;
   left: 40px;
-  width: 550px; }
+  width: 520px; }
+  @media (max-width: 1024px) {
+    /* line 134, site.css.scss */
+    .carrify {
+      width: 400px; } }
+  @media (max-height: 800px) {
+    /* line 134, site.css.scss */
+    .carrify {
+      width: 400px; } }
   @media (max-width: 480px) {
     /* line 134, site.css.scss */
     .carrify {
       position: relative;
-      top: 30px;
+      top: 15px;
       left: 0;
-      width: 90%;
+      width: 85%;
       display: block;
       margin: 0 auto; } }
 
-/* line 150, site.css.scss */
+/* line 158, site.css.scss */
 h1 {
   margin: 0;
   padding: 0;
   position: relative; }
-  /* line 155, site.css.scss */
+  /* line 163, site.css.scss */
   h1 span {
     position: absolute;
     left: -999999px; }
 
-/* line 161, site.css.scss */
+/* line 169, site.css.scss */
 h2 {
   position: absolute;
   top: 120px;
@@ -573,14 +581,23 @@ h2 {
   -o-animation: fadein 2s;
   /* Opera < 12.1 */
   animation: fadein 2s; }
+  @media (max-height: 1024px) {
+    /* line 169, site.css.scss */
+    h2 {
+      top: 80px; } }
+  @media (max-height: 800px) {
+    /* line 169, site.css.scss */
+    h2 {
+      top: 80px; } }
   @media (max-width: 480px) {
-    /* line 161, site.css.scss */
+    /* line 169, site.css.scss */
     h2 {
       position: relative;
       top: auto;
       left: auto;
       text-align: center;
-      font-size: 2.5em; } }
+      font-size: 1.7em;
+      padding: 0 10px; } }
 
 @keyframes fadein {
   from {
@@ -611,7 +628,7 @@ h2 {
     opacity: 0; }
   to {
     opacity: 1; } }
-/* line 218, site.css.scss */
+/* line 235, site.css.scss */
 .canvas {
   position: absolute;
   top: 0;

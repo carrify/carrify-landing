@@ -2,6 +2,9 @@
 @import "normalize";
 
 $main-colour: #D62343;
+$mobile-width: 700px;
+$tablet-width: 1023px;
+$small-width: 1200px;
 
 * {
   box-sizing: border-box;
@@ -23,15 +26,33 @@ body {
 .carrify-section {
   min-height: 100%;
 
+  @media only screen and (max-width: $mobile-width) {
+    min-height: inherit;
+  }
+
   .section-body {
     width: 800px;
     margin: 0 auto;
     padding: 30px 0;
+
+    @media only screen and (max-width: $tablet-width) {
+      width: 100%;
+      padding: 30px 35px;
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      width: 100%;
+      padding: 30px 25px;
+    }
   }
 
   &.section-1 {
     height: 100%;
     overflow: hidden;
+
+    @media only screen and (max-width: $mobile-width) {
+      height: auto;
+    }
 
     &::after {
       content: " ";
@@ -42,15 +63,27 @@ body {
       right: 0;
       background-color: rgba(0, 0, 0, 0.8);
       z-index: 1000;
+
+      @media only screen and (max-width: $mobile-width) {
+        position: inherit;
+      }
     }
   }
 
   &.section-2 {
     padding-bottom: 350px;
+
+    @media only screen and (max-width: $mobile-width) {
+      padding-bottom: 100px;
+    }
   }
 
   &.section-3 {
     padding-bottom: 100px;
+
+    @media only screen and (max-width: $mobile-width) {
+      padding-bottom: inherit;
+    }
   }
 }
 
@@ -68,6 +101,12 @@ body {
   height: 120px;
   padding: 30px 40px;
   z-index: 2000;
+  background-color: rgba(#333, 0.7);
+
+  @media only screen and (max-width: $mobile-width) {
+    height: auto;
+    position: inherit;
+  }
 
   h1 {
     margin: 0;
@@ -90,10 +129,23 @@ body {
   }
 
   nav {
-    width: 60%;
+    width: 70%;
     max-width: 1000px;
     float: right;
     padding: 13px 0;
+
+    @media only screen and (max-width: $tablet-width) {
+      padding-top: 0;
+      margin-top: -10px;
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      width: 100%;
+      float: none;
+      clear: both;
+      padding-top: 13px;
+      margin-top: 0;
+    }
   }
 
   ul {
@@ -107,6 +159,14 @@ body {
       width: 33.33%;
       text-align: center;
       border-right: 2px solid rgba(255, 255, 255, 0.5);
+
+      @media only screen and (max-width: $mobile-width) {
+        float: none;
+        width: 100%;
+        padding: 20px 0;
+        border-right: none;
+        border-top: 2px solid rgba(255, 255, 255, 0.4);
+      }
 
       &:last-child {
         border-right: none;
@@ -135,6 +195,10 @@ h2 {
   color: #555;
   z-index: 1000;
   position: relative;
+
+  @media only screen and (max-width: $mobile-width) {
+    font-size: 26pt;
+  }
 }
 
 .logo-carrify-red {
@@ -146,6 +210,10 @@ h2 {
   font-size: 16pt;
   margin-top: 40px;
   color: #555;
+
+  @media only screen and (max-width: $mobile-width) {
+    font-size: 14pt;
+  }
 }
 
 .world {
@@ -171,6 +239,12 @@ h2 {
   .columns {
     img {
       width: 100%;
+
+      @media only screen and (max-width: $mobile-width) {
+        width: 60%;
+        display: block;
+        margin: 0 auto;
+      }
     }
   }
 }
@@ -179,6 +253,10 @@ h2 {
   position: relative;
   height: 1100px;
   overflow: hidden;
+
+  @media only screen and (max-width: $mobile-width) {
+    height: auto;
+  }
 }
 
 .carrify-section.section-5 {
@@ -192,8 +270,17 @@ h2 {
     width: 28.33%;
     float: left;
 
+    @media only screen and (max-width: $mobile-width) {
+      float: none;
+      width: 100%;
+    }
+
     &:nth-child(2) {
       margin: 0 7.5%;
+
+      @media only screen and (max-width: $mobile-width) {
+        margin: 0;
+      }
     }
   }
 }
@@ -202,12 +289,21 @@ h2 {
   height: 300px;
   position: relative;
 
+  @media only screen and (max-width: $mobile-width) {
+    height: auto;
+  }
+
   img {
     position: absolute;
     width: 100%;
     left: 0;
     right: 0;
     bottom: 0;
+
+    @media only screen and (max-width: $mobile-width) {
+      position: inherit;
+      width: 60%;
+    }
   }
 }
 
@@ -217,6 +313,11 @@ h2 {
   font-weight: 300;
   line-height: 140%;
   min-height: 550px;
+
+  @media only screen and (max-width: $mobile-width) {
+    min-height: inherit;
+    margin-bottom: 70px;
+  }
 }
 
 .product-btn {
@@ -231,6 +332,10 @@ h2 {
   font-size: 16pt;
   position: relative;
 
+  @media only screen and (max-width: $mobile-width) {
+    margin-bottom: 80px;
+  }
+
   &::before {
     content: " ";
     position: absolute;
@@ -244,6 +349,25 @@ h2 {
     background-repeat: no-repeat;
     background-position: center;
   }
+
+  &::after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(#fff, 0.5);
+    bottom: -50px;
+    left: 0;
+    right: 0;
+  }
+}
+
+.columns {
+  .column-33:nth-child(3) {
+    .product-btn::after {
+      display: none;
+    }
+  }
 }
 
 .people {
@@ -254,11 +378,36 @@ h2 {
   left: 0;
   right: 0;
 
+  @media only screen and (max-width: $mobile-width) {
+    min-height: inherit;
+    position: inherit;
+  }
+
+  .people-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @media only screen and (max-width: $mobile-width) {
+      max-width: inherit;
+    }
+  }
+
   .person-bar {
     width: 25%;
     height: 900px;
     float: left;
     position: relative;
+
+    @media only screen and (max-width: $tablet-width) {
+      height: 760px
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      width: 100%;
+      height: 740px;
+      float: none;
+      margin-bottom: 40px;
+    }
 
     .bar {
       position: absolute;
@@ -274,6 +423,10 @@ h2 {
       -moz-transform: skew(-15deg) rotate(-12deg);
 	    -o-transform: skew(-15deg) rotate(-12deg);
       transform: skew(-15deg) rotate(-12deg);
+
+      @media only screen and (max-width: $mobile-width) {
+
+      }
     }
 
     h3 {
@@ -286,6 +439,14 @@ h2 {
       text-transform: lowercase;
       color: #333;
 
+      @media only screen and (max-width: $tablet-width) {
+        font-size: 2em;
+      }
+
+      @media only screen and (max-width: $mobile-width) {
+        font-size: 3em;
+      }
+
       p {
         width: 120%;
         margin: 0;
@@ -293,6 +454,10 @@ h2 {
 
         &:nth-child(2) {
           padding: 0 0 0 50%;
+
+          @media only screen and (max-width: $mobile-width) {
+            padding-left: 40%
+          }
         }
       }
     }
@@ -316,6 +481,14 @@ h2 {
       bottom: 0;
       left: 0;
       z-index: 1000;
+
+      @media only screen and (max-width: $tablet-width) {
+        height: 350px;
+      }
+
+      @media only screen and (max-width: $mobile-width) {
+        height: 500px
+      }
     }
 
     &:nth-child(2) {
@@ -323,20 +496,36 @@ h2 {
         top: -110px;
         margin-bottom: 110px;
         background-color: #FC4772;
+
+        @media only screen and (max-width: $mobile-width) {
+          top: 0;
+        }
       }
 
       .person {
         bottom: 105px;
         left: -25px;
+
+        @media only screen and (max-width: $mobile-width) {
+          bottom: 0;
+        }
       }
 
       h3 {
         p:nth-child(1) {
           padding-left: 45%;
+
+          @media only screen and (max-width: $mobile-width) {
+            padding-left: 35%
+          }
         }
 
         p:nth-child(2) {
           padding-left: 40%;
+
+          @media only screen and (max-width: $mobile-width) {
+            padding-left: 30%
+          }
         }
       }
     }
@@ -346,12 +535,28 @@ h2 {
         top: -60px;
         margin-bottom: 40px;
         background-color: #FC5353;
+
+        @media only screen and (max-width: $mobile-width) {
+          top: 0;
+        }
       }
 
       .person {
         height: 450px;
         bottom: 20px;
         left: -25px;
+
+        @media only screen and (max-width: $tablet-width) {
+          height: 350px;
+        }
+
+        @media only screen and (max-width: $mobile-width) {
+          height: 450px
+        }
+
+        @media only screen and (max-width: $mobile-width) {
+          bottom: 0;
+        }
       }
 
       h3 {
@@ -367,16 +572,28 @@ h2 {
         top: -80px;
         margin-bottom: 80px;
         background-color: #C36D96;
+
+        @media only screen and (max-width: $mobile-width) {
+          top: 0;
+        }
       }
 
       .person {
         bottom: 80px;
         left: -10px;
+
+        @media only screen and (max-width: $mobile-width) {
+          bottom: 0;
+        }
       }
 
       h3 {
         p:nth-child(2) {
           padding: 0 0 0 25%;
+
+          @media only screen and (max-width: $mobile-width) {
+            padding-left: 15%
+          }
         }
       }
     }
@@ -386,10 +603,23 @@ h2 {
 .opinion-title {
   margin: -50px 0 0 0;
   color: #888;
+
+  @media only screen and (max-width: $mobile-width) {
+    margin-top: -30px;
+    font-size: 16pt;
+  }
 }
 
 .users {
   padding-top: 150px;
+
+  @media only screen and (max-width: $tablet-width) {
+    padding-top: 40px;
+  }
+
+  @media only screen and (max-width: $mobile-width) {
+    padding-top: 40px;
+  }
 
   .row {
     overflow: hidden;
@@ -397,6 +627,12 @@ h2 {
     .user {
       width: 35%;
       min-height: 600px;
+
+      @media only screen and (max-width: $mobile-width) {
+        width: 100%;
+        min-height: inherit;
+        margin-bottom: 100px;
+      }
 
       img {
         width: 100%;
@@ -435,10 +671,18 @@ h2 {
     &:nth-child(1) {
       .user:nth-child(1) {
         float: left;
+
+        @media only screen and (max-width: $mobile-width) {
+          float: none;
+        }
       }
 
       .user:nth-child(2) {
         float: right;
+
+        @media only screen and (max-width: $mobile-width) {
+          float: none;
+        }
       }
     }
 
@@ -446,6 +690,11 @@ h2 {
       .user {
         width: 45%;
         margin: 0 auto;
+
+        @media only screen and (max-width: $mobile-width) {
+          width: 100%;
+          margin: inherit;
+        }
       }
     }
   }
@@ -456,6 +705,14 @@ footer {
   color: #fff;
   min-height: inherit !important;
   padding: 30px 0;
+
+  .footer-logo {
+    width: 350px;
+
+    @media only screen and (max-width: $mobile-width) {
+      width: 100%;
+    }
+  }
 
   .footer-motto {
     font-family: 'Open Sans', sans-serif;
@@ -470,6 +727,10 @@ footer {
     overflow: hidden;
     margin-top: 50px;
 
+    @media only screen and (max-width: $mobile-width) {
+      margin-top: 20px;
+    }
+
     .product {
       width: 33.33%;
       height: 150px;
@@ -477,17 +738,35 @@ footer {
       float: left;
       text-align: center;
 
+      @media only screen and (max-width: $mobile-width) {
+        width: 100%;
+        height: auto;
+        float: none;
+      }
+
       img {
         width: 60%;
         position: absolute;
         bottom: 0;
         left: 20%;
+
+        @media only screen and (max-width: $mobile-width) {
+          width: 100%;
+          position: inherit;
+          display: block;
+          margin: 70px auto;
+        }
       }
 
       &:nth-child(1) {
         img {
           width: 40%;
           left: 30%;
+
+          @media only screen and (max-width: $mobile-width) {
+            width: 50%;
+            left: auto;
+          }
         }
       }
 
@@ -495,13 +774,23 @@ footer {
         img {
           width: 60%;
           left: 20%;
+
+          @media only screen and (max-width: $mobile-width) {
+            width: 75%;
+            left: auto;
+          }
         }
       }
 
       &:nth-child(3) {
         img {
           width: 65%;
-          left: 32.5%;
+          left: 17.5%;
+
+          @media only screen and (max-width: $mobile-width) {
+            width: 75%;
+            left: auto;
+          }
         }
       }
     }
@@ -516,6 +805,10 @@ footer {
   font-weight: 100;
   font-size: 1.5em;
 
+  @media only screen and (max-width: $mobile-width) {
+    font-size: 1.1em;
+  }
+
   img {
     vertical-align: middle;
     margin-right: 10px;
@@ -524,10 +817,34 @@ footer {
   .carrify {
     width: 50%;
     float: left;
+
+    @media only screen and (max-width: $tablet-width) {
+      text-align: left;
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      width: 100%;
+      float: none;
+      font-size: 1.5em;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(#fff, 0.5);
+      text-align: center;
+    }
   }
 
   .fechu {
     width: 50%;
     float: left;
+
+    @media only screen and (max-width: $tablet-width) {
+      text-align: right;
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      width: 100%;
+      float: none;
+      text-align: center;
+    }
   }
 }

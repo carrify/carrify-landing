@@ -15,8 +15,21 @@ html {
 }
 
 body {
+  margin-top: 120px;
   height: 100%;
   font-family: 'Open Sans', sans-serif;
+
+  @media only screen and (max-width: $mobile-width) {
+    margin-top: 0px;
+  }
+}
+
+iframe {
+  width: 100%;
+  padding-bottom: 20px;
+  @media only screen and (max-width: $mobile-width) {
+    display: none;
+  }
 }
 
 .text-center {
@@ -24,7 +37,6 @@ body {
 }
 
 .carrify-section {
-  min-height: 100%;
 
   @media only screen and (max-width: $mobile-width) {
     min-height: inherit;
@@ -47,27 +59,12 @@ body {
   }
 
   &.section-1 {
-    height: 100%;
     overflow: hidden;
 
     @media only screen and (max-width: $mobile-width) {
       height: auto;
     }
 
-    &::after {
-      content: " ";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
-
-      @media only screen and (max-width: $mobile-width) {
-        position: inherit;
-      }
-    }
   }
 
   &.section-2 {
